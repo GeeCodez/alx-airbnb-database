@@ -1,0 +1,1 @@
+The schema above includes the database schema design for the alx airbnb backend clone project
