@@ -3,10 +3,10 @@ SELECT users.first_name ||' '|| users.last_name as  username, booking.booking_id
 FROM users INNER JOIN booking 
 ON users.user_id=booking.user_id;
 
---retrieiving all properties and their reviews using the left join including those without reviews
+--retrieving all properties and their reviews using the left join including those without reviews
 SELECT property.name, review.comment, review.rating FROM property
 LEFT JOIN review
-ON property.property_id=review.property_id;
+ON property.property_id=review.property_id ORDER BY property.name;
 
 --using full outer join to get all users and even if a user has not bookings
 SELECT users.first_name ||' '|| users.last_name as username, booking.booking_id
