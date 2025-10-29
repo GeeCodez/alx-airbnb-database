@@ -1,0 +1,1 @@
+The query is joins_queries.sql is to practive joining in sql and how to write complex queries
