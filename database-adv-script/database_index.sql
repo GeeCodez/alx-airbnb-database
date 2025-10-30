@@ -1,2 +1,2 @@
-EXPLAIN (analyze, buffers)
+EXPLAIN ANALYSE
 select * from users where role='admin';
