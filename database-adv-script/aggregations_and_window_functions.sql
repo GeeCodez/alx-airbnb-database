@@ -3,7 +3,12 @@ SELECT u.first_name ||' '||u.last_name AS username , COUNT(b.booking_id) as tota
 FROM users u JOIN booking b ON u.user_id=b.user_id 
 GROUP BY username;
 
-SELECT p.name, COUNT(b.booking_id) AS total_bookings, RANK() OVER
-    (ORDER BY count(b.booking_id) DESC) AS booking_rank
-    FROM property p JOIN booking b ON p.property_id=b.property_id
-    GROUP p.name;
+SELECT 
+    p.name,
+    COUNT(b.booking_id) AS total_bookings,
+    RANK() OVER (ORDER BY COUNT(b.booking_id) DESC) AS booking_rank,
+    ROW_NUMBER() OVER (ORDER BY COUNT(b.booking_id) DESC) AS row_number_rank
+FROM property p
+JOIN booking b ON p.property_id = b.property_id
+GROUP BY p.name
+ORDER BY total_bookings DESC;
