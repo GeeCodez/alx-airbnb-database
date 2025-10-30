@@ -1,0 +1,41 @@
+[
+  {
+    "QUERY PLAN": "Nested Loop  (cost=2.15..6.75 rows=3 width=766)"
+  },
+  {
+    "QUERY PLAN": "  Join Filter: (b.property_id = pr.property_id)"
+  },
+  {
+    "QUERY PLAN": "  ->  Hash Join  (cost=2.15..5.60 rows=3 width=234)"
+  },
+  {
+    "QUERY PLAN": "        Hash Cond: (u.user_id = b.user_id)"
+  },
+  {
+    "QUERY PLAN": "        ->  Seq Scan on users u  (cost=0.00..3.03 rows=103 width=90)"
+  },
+  {
+    "QUERY PLAN": "        ->  Hash  (cost=2.12..2.12 rows=3 width=144)"
+  },
+  {
+    "QUERY PLAN": "              ->  Hash Join  (cost=1.07..2.12 rows=3 width=144)"
+  },
+  {
+    "QUERY PLAN": "                    Hash Cond: (p.booking_id = b.booking_id)"
+  },
+  {
+    "QUERY PLAN": "                    ->  Seq Scan on payment p  (cost=0.00..1.03 rows=3 width=60)"
+  },
+  {
+    "QUERY PLAN": "                    ->  Hash  (cost=1.03..1.03 rows=3 width=84)"
+  },
+  {
+    "QUERY PLAN": "                          ->  Seq Scan on booking b  (cost=0.00..1.03 rows=3 width=84)"
+  },
+  {
+    "QUERY PLAN": "  ->  Materialize  (cost=0.00..1.04 rows=3 width=532)"
+  },
+  {
+    "QUERY PLAN": "        ->  Seq Scan on property pr  (cost=0.00..1.03 rows=3 width=532)"
+  }
+]
