@@ -1,5 +1,5 @@
 --ANALYSIS BEFORE INDEXES
-EXPLAIN ANALYSE
+EXPLAIN
 SELECT * FROM users WHERE role='admin';
 
 --CREATE INDEXS
@@ -10,5 +10,5 @@ CREATE INDEX booking_id_p_index ON payment(booking_id);
 CREATE INDEX email_index ON users(email);
 
 --ANALYSIS AFTER INDEXES
-EXPLAIN ANALYSE
+EXPLAIN
 SELECT * FROM users WHERE role='admin';
